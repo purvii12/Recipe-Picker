@@ -19,18 +19,21 @@ export function RecipeModal({ recipe, isOpen, onClose, onToggleFavorite }: Recip
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "Easy": return "bg-[#10b981]/20 text-[#10b981] border-[#10b981]/30";
-      case "Medium": return "bg-[#f59e0b]/20 text-[#f59e0b] border-[#f59e0b]/30";
-      case "Hard": return "bg-red-500/20 text-red-400 border-red-500/30";
-      default: return "bg-muted text-muted-foreground";
+      case "Easy":
+        return "bg-[#10b981]/20 text-[#10b981] border-[#10b981]/30";
+      case "Medium":
+        return "bg-[#f59e0b]/20 text-[#f59e0b] border-[#f59e0b]/30";
+      case "Hard":
+        return "bg-red-500/20 text-red-400 border-red-500/30";
+      default:
+        return "bg-muted text-muted-foreground";
     }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] p-0 flex flex-col bg-card border-border">
-
-        {/* Fixed height header image and buttons */}
+        {/* Header with image and action buttons */}
         <div className="relative h-64 flex-shrink-0">
           <ImageWithFallback
             src={recipe.image}
@@ -58,9 +61,7 @@ export function RecipeModal({ recipe, isOpen, onClose, onToggleFavorite }: Recip
                 : "bg-black/20 text-white hover:bg-black/40"
             }`}
           >
-            <Heart
-              className={`w-4 h-4 ${recipe.isFavorite ? "fill-current" : ""}`}
-            />
+            <Heart className={`w-4 h-4 ${recipe.isFavorite ? "fill-current" : ""}`} />
           </Button>
 
           <div className="absolute bottom-4 left-6 right-6">
@@ -81,86 +82,79 @@ export function RecipeModal({ recipe, isOpen, onClose, onToggleFavorite }: Recip
           </div>
         </div>
 
-        {/* Scrollable recipe content */}
+        {/* Scrollable content area */}
         <ScrollArea className="flex-1 p-6 overflow-y-auto">
-
-          <div className="space-y-6">
+          <div className="space-y-8">
+            {/* Description and tags */}
             <div>
-              <p className="text-muted-foreground leading-relaxed">
-                {recipe.description}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {recipe.tags.map((tag) => (
-                <Badge 
-                  key={tag} 
-                  variant="outline" 
-                  className="bg-muted/50 border-border"
-                >
-                  {tag}
-                </Badge>
-              ))}
+              <p className="text-muted-foreground leading-relaxed mb-4">{recipe.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {recipe.tags.map((tag) => (
+                  <Badge key={tag} variant="outline" className="bg-muted/50 border-border">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
             </div>
 
             <Separator />
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 space-y-6">
+            {/* Layout grid: Ingredients & Instructions | Nutrition & Tips */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {/* Ingredients and Instructions */}
+              <div className="md:col-span-2 space-y-8">
+                {/* Ingredients */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-[#10b981]">Ingredients</h3>
-                  <ul className="space-y-2">
-                    {recipe.ingredients.map((ingredient, index) => (
-                      <li 
-                        key={index} 
-                        className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
-                      >
-                        <div className="w-2 h-2 rounded-full bg-[#10b981] mt-2 flex-shrink-0" />
-                        <span>{ingredient}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="text-lg font-semibold mb-2 text-[#10b981]">Ingredients</h3>
+                  {recipe.ingredients.length ? (
+                    <ul className="space-y-2">
+                      {recipe.ingredients.map((ingredient, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <span className="inline-block w-2 h-2 rounded-full bg-[#10b981]" />
+                          <span>{ingredient}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span className="text-muted-foreground">No ingredients available.</span>
+                  )}
                 </div>
 
-                <Separator />
-
+                {/* Instructions */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-[#6b46c1]">Instructions</h3>
-                  <ol className="space-y-4">
-                    {recipe.instructions.map((instruction, index) => (
-                      <li 
-                        key={index} 
-                        className="flex gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-[#6b46c1] text-white flex items-center justify-center text-sm font-medium flex-shrink-0">
-                          {index + 1}
-                        </div>
-                        <span className="leading-relaxed">{instruction}</span>
-                      </li>
-                    ))}
-                  </ol>
+                  <h3 className="text-lg font-semibold mb-2 text-[#6b46c1]">Instructions</h3>
+                  {recipe.instructions.length ? (
+                    <ol className="space-y-3 list-decimal list-inside">
+                      {recipe.instructions.map((instruction, idx) => (
+                        <li key={idx} className="leading-relaxed">{instruction}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <span className="text-muted-foreground">No instructions available.</span>
+                  )}
                 </div>
               </div>
 
-              <div className="space-y-4">
+              {/* Nutrition & Quick Tips */}
+              <div className="space-y-6">
                 <div className="bg-muted/30 rounded-lg p-4 border border-border">
                   <h3 className="text-lg font-semibold mb-4 text-[#f59e0b]">Nutrition Info</h3>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Calories</span>
-                      <span className="font-medium">{recipe.nutrition.calories}</span>
+                      <span>Calories</span>
+                      <span className="font-bold">{recipe.nutrition.calories}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Protein</span>
-                      <span className="font-medium">{recipe.nutrition.protein}g</span>
+                      <span>Protein</span>
+                      <span className="font-bold">{recipe.nutrition.protein}g</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Carbs</span>
-                      <span className="font-medium">{recipe.nutrition.carbs}g</span>
+                      <span>Carbs</span>
+                      <span className="font-bold">{recipe.nutrition.carbs}g</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Fat</span>
-                      <span className="font-medium">{recipe.nutrition.fat}g</span>
+                      <span>Fat</span>
+                      <span className="font-bold">{recipe.nutrition.fat}g</span>
                     </div>
                   </div>
                 </div>
@@ -174,10 +168,8 @@ export function RecipeModal({ recipe, isOpen, onClose, onToggleFavorite }: Recip
                   </ul>
                 </div>
               </div>
-
             </div>
           </div>
-
         </ScrollArea>
       </DialogContent>
     </Dialog>
