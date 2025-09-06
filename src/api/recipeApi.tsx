@@ -1,4 +1,4 @@
-const API_KEY = "bb020d1bfbcd410d992888e3012f3f63";
+const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY || "";
 const BASE_URL = "https://api.spoonacular.com";
 
 import { stripHtml } from "../utils/helper";
