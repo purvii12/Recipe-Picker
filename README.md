@@ -99,6 +99,14 @@ yarn dev
 - [ ] User recipe submissions  
 
 ---
+🚀 Future Plans
+I'm cooking up some exciting enhancements to make Recipe Picker smarter, healthier, and more personal:
+
+🥗 Diet & Health Filters – Options for vegan, gluten-free, keto, or high-protein recipes.
+❤️ Personalized Recommendations – AI-based suggestions based on your saved favorites & cooking history.
+🌍 Cultural Cuisines – Filter recipes by global cuisines (Indian, Italian, Mediterranean, etc.).
+👩‍🍳 Community Recipes – Allow users to submit their own recipes and share with others.
+🛒 Smart Pantry Sync – Connect with a virtual pantry tracker to suggest recipes as ingredients run low.
 
 ## 🤝 Contributing
 
