@@ -1,5 +1,3 @@
-
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <img src="(https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/658ad777-3d26-4113-a9bc-a403371784f0.png)" width="120" />
@@ -7,7 +5,7 @@
   <p align="center">
     Discover delicious recipes tailored to your kitchen ingredients!
     <br />
-    <a href="https://your-deployed-app-url.com">View Demo</a>
+    <a href="https://recipe-picker-xi.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/purvii12/recipe-picker/issues">Report Bug</a>
     ·
@@ -30,6 +28,9 @@
 - [License](#-license)
 - [Contact](-contact)
 
+---
+![Screenshot](./Recipe-picker-photo.png)  
+*Screenshot showing the main UI of the project.*
 ---
 
 ##  About The Project
