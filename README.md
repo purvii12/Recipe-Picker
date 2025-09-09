@@ -1,7 +1,6 @@
 <br />
 <p align="center">
-  <img src="(https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/658ad777-3d26-4113-a9bc-a403371784f0.png)" width="120" />
-  <h2 align="center">Recipe Picker</h2>
+  <h1 align="center">Recipe Picker</h1>
   <p align="center">
     Discover delicious recipes tailored to your kitchen ingredients!
     <br />
@@ -12,21 +11,6 @@
     <a href="https://github.com/purvii12/recipe-picker/issues">Request Feature</a>
   </p>
 </p>
-
----
-
-## 🧾 Table of Contents
-
-- [About The Project](-about-the-project)
-- [Features](#-features)
-- [Demo](-demo)
-- [Installation](-installation)
-- [Usage](-usage)
-- [Tech Stack](-tech-stack)
-- [Roadmap](-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](-contact)
 
 ---
 ![Screenshot](./Recipe-picker-photo.png)  
