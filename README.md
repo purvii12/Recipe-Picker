@@ -55,10 +55,6 @@ The app features a clean UI, recipe modals with nutrition info, and favorites pe
 
 ---
 
-##  Demo
-
-[Demo animation]
-Live Demo: 
 
 ---
 
